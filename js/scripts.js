@@ -35,15 +35,11 @@ $(document).ready(function(){
           html +=   '<td>' + description + '</td>';
           html += '</tr>';
         }
-
-
-
       //closing of the grants function
       });
-
       $('#results').append(html);
-      //end of success function
-    }
+    //end of success function
+    }//no comma here
   //end of AJAX
   });
 
