@@ -1,8 +1,11 @@
 table, th, td {
     border: 1px solid black;
-    width: 100%;
     border-collapse: collapse;
     font-family: 'Roboto', sans-serif;
+}
+
+table{
+  width: 100%;
 }
 
 /*making the ones without a description not show up*/
