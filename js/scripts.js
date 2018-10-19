@@ -1,6 +1,52 @@
 $(document).ready(function(){
   console.log('scripts loaded');
 
+  var grants;
+  var html = '';
+  var url = '../NEH_Grants2010s.xml';
+  var title = '';
+  var year = '';
+  var amount = '';
+  var description = '';
+
+  $.ajax({
+    type: 'GET',
+    url: url,
+    data: grants,
+    dataType: 'xml',
+    async: true,
+    success: function(grants){
+      console.log(grants);
+      html += '<tr><th>Project Title</th><th>Year Awarded</th><th>Original Amount</th><th>Description</th></tr>';
+      $(grants).find('Grant').each(function(){
+        title = $(this).find('ProjectTitle').text();
+        year = $(this).find('YearAwarded').text();
+        amount = $(this).find('OriginalAmount').text();
+        description = $(this).find('ProjectDesc').text();
+        console.log(title + ' ' + year + ' ' + amount + ' ' + description);
+        if(description == 'None'){
+          html += '<tr id="no-description"></tr>'
+        }
+        else{
+          html += '<tr>';
+          html +=   '<td>' + title + '</td>';
+          html +=   '<td>' + year + '</td>';
+          html +=   '<td>' + amount + '</td>';
+          html +=   '<td>' + description + '</td>';
+          html += '</tr>';
+        }
+
+
+
+      //closing of the grants function
+      });
+
+      $('#results').append(html);
+      //end of success function
+    }
+  //end of AJAX
+  });
+
 /*
 1) Build an HTML table using an AJAX call on the provided XML file (NEH_Grants2010s.xml).
    The XML data shows all of the grants awarded by the National Endowment for the Humanities since 2008.

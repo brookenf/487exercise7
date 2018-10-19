@@ -1,4 +1,15 @@
 table, th, td {
     border: 1px solid black;
+    width: 100%;
     border-collapse: collapse;
+    font-family: 'Roboto', sans-serif;
+}
+
+/*making the ones without a description not show up*/
+#no-description{
+  display: none;
+}
+
+h1{
+  font-family: 'Niramit', sans-serif;
 }
