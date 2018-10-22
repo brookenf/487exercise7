@@ -22,7 +22,7 @@ $(document).ready(function(){
         title = $(this).find('ProjectTitle').text();
         year = $(this).find('YearAwarded').text();
         amount = $(this).find('OriginalAmount').text();
-        description = $(this).find('ProjectDesc').text();
+        description = $(this).find('ToSupport').text();
         console.log(title + ' ' + year + ' ' + amount + ' ' + description);
         if(description == 'None'){
           html += '<tr id="no-description"></tr>'
